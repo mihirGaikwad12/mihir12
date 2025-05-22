@@ -15,26 +15,27 @@
 </head>
 <body class="bg-[#f8f9fa] text-gray-900 font-[Poppins]">
   <!-- Header -->
-  <header class="bg-[#001f3f] shadow-md py-4 px-6 text-white flex justify-between items-center">
-    <h1 class="text-2xl font-bold">🛍️ Mihir's Shopping Store</h1>
-    <div class="flex items-center space-x-4">
-      <a href="index.html" class="bg-yellow-400 text-[#001f3f] px-4 py-1 rounded-md text-sm font-semibold hover:bg-yellow-300 transition">← Portfolio</a>
+  <header class="bg-[#001f3f] shadow-md py-4 px-4 sm:px-6 text-white flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-3 sm:space-y-0">
+    <h1 class="text-xl sm:text-2xl font-bold">🛍️ Mihir's Shopping Store</h1>
+    <div class="flex flex-wrap sm:flex-nowrap items-center gap-2">
+      <a href="index.html" class="bg-yellow-400 text-[#001f3f] px-3 py-1 rounded-md text-sm font-semibold hover:bg-yellow-300 transition">← Portfolio</a>
       <a href="cart.html" class="bg-blue-500 px-3 py-1 rounded hover:bg-blue-400 text-white text-sm">🛒 Cart</a>
       <a href="favourites.html" class="bg-pink-500 px-3 py-1 rounded hover:bg-pink-400 text-white text-sm">❤️ Favorites</a>
       <a href="checkout.html" class="bg-green-500 px-3 py-1 rounded hover:bg-green-400 text-white text-sm">🧾 Checkout</a>
     </div>
   </header>
 
-  <main class="py-10 px-6 max-w-7xl mx-auto space-y-16">
+  <main class="py-10 px-4 sm:px-6 max-w-7xl mx-auto space-y-12">
     <!-- Product Section -->
     <section>
-      <h2 class="text-3xl font-bold text-gray-700 mb-8">Featured Products</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="product bg-white rounded-lg shadow-md p-4" data-name="Classic Hoodie" data-price=<"4599">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-700 mb-6 sm:mb-8">Featured Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Product 1 -->
+        <div class="product bg-white rounded-lg shadow-md p-4" data-name="Classic Hoodie" data-price="4599">
           <img src="hoodies.jpg" alt="Hoodie" class="w-full h-48 object-cover rounded">
-          <h3 class="text-xl font-semibold mt-4">Classic Hoodie</h3>
+          <h3 class="text-lg sm:text-xl font-semibold mt-4">Classic Hoodie</h3>
           <p class="text-sm text-gray-600">Warm, stylish, and comfy.</p>
-          <div class="mt-3 flex justify-between items-center">
+          <div class="mt-3 flex justify-between items-center flex-wrap gap-2">
             <span class="font-bold text-lg text-green-600">₹4599</span>
             <div class="space-x-2">
               <button class="favorite-btn text-sm text-yellow-500 hover:underline">❤️ Favorite</button>
@@ -43,11 +44,12 @@
           </div>
         </div>
 
+        <!-- Product 2 -->
         <div class="product bg-white rounded-lg shadow-md p-4" data-name="Running Sneakers" data-price="14999">
           <img src="nike.jpg" alt="Sneakers" class="w-full h-48 object-cover rounded">
-          <h3 class="text-xl font-semibold mt-4">Running Sneakers</h3>
+          <h3 class="text-lg sm:text-xl font-semibold mt-4">Running Sneakers</h3>
           <p class="text-sm text-gray-600">Lightweight & durable.</p>
-          <div class="mt-3 flex justify-between items-center">
+          <div class="mt-3 flex justify-between items-center flex-wrap gap-2">
             <span class="font-bold text-lg text-green-600">₹14,999</span>
             <div class="space-x-2">
               <button class="favorite-btn text-sm text-yellow-500 hover:underline">❤️ Favorite</button>
@@ -56,11 +58,12 @@
           </div>
         </div>
 
+        <!-- Product 3 -->
         <div class="product bg-white rounded-lg shadow-md p-4" data-name="Analog Watch" data-price="35999">
           <img src="seiko.jpg" alt="Watch" class="w-full h-48 object-cover rounded">
-          <h3 class="text-xl font-semibold mt-4">Smart Watch</h3>
+          <h3 class="text-lg sm:text-xl font-semibold mt-4">Smart Watch</h3>
           <p class="text-sm text-gray-600">Fitness tracking with style.</p>
-          <div class="mt-3 flex justify-between items-center">
+          <div class="mt-3 flex justify-between items-center flex-wrap gap-2">
             <span class="font-bold text-lg text-green-600">₹35,999</span>
             <div class="space-x-2">
               <button class="favorite-btn text-sm text-yellow-500 hover:underline">❤️ Favorite</button>
@@ -72,7 +75,7 @@
     </section>
   </main>
 
-  <footer class="bg-[#001f3f] text-white py-4 text-center">
+  <footer class="bg-[#001f3f] text-white py-4 text-center text-sm sm:text-base">
     <p>© 2025 Mihir.R.Gaikwad | Powered by creativity</p>
   </footer>
 
@@ -104,6 +107,3 @@
   </script>
 </body>
 </html>
-
-
-
