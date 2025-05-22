@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorites - Jatin's Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#f8f9fa] text-gray-900 font-[Poppins]">
+
+  <header class="bg-[#001f3f] shadow-md py-4 px-6 text-white flex justify-between items-center">
+    <h1 class="text-2xl font-bold">❤️ Your Favorites</h1>
+    <nav class="flex gap-4">
+      <a href="shop.html" class="bg-yellow-400 text-[#001f3f] px-3 py-1 rounded-md text-sm font-semibold hover:bg-yellow-300 transition">
+        🏠 Store
+      </a>
+      <a href="cart.html" class="bg-blue-400 text-white px-3 py-1 rounded-md text-sm font-semibold hover:bg-blue-300 transition">
+        🛒 Cart
+      </a>
+      <a href="checkout.html" class="bg-green-500 text-white px-3 py-1 rounded-md text-sm font-semibold hover:bg-green-400 transition">
+        ✅ Checkout
+      </a>
+    </nav>
+  </header>
+
+  <main class="py-10 px-6 max-w-4xl mx-auto">
+    <div class="bg-white p-6 rounded shadow space-y-4" id="favorites-items">
+      <p class="text-gray-500 italic">Loading your favorites...</p>
+    </div>
+  </main>
+
+  <script>
+    const favoritesItemsContainer = document.getElementById("favorites-items");
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    function renderFavorites() {
+      favoritesItemsContainer.innerHTML = favorites.length === 0 ? '<p class="text-gray-500 italic">No favorite items yet.</p>' : '';
+      favorites.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "flex justify-between items-center bg-gray-100 p-3 rounded";
+        div.innerHTML = `
+          <span>❤️ ${item.name}</span>
+          <span class="text-green-600 font-semibold">₹${item.price}</span>
+        `;
+        favoritesItemsContainer.appendChild(div);
+      });
+    }
+
+    renderFavorites();
+  </script>
+</body>
+</html>

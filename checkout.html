@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - Jatin's Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#f8f9fa] text-gray-900 font-[Poppins]">
+
+  <header class="bg-[#001f3f] shadow-md py-4 px-6 text-white flex justify-between items-center">
+    <h1 class="text-2xl font-bold">🧾 Checkout</h1>
+    <a href="shop.html" class="bg-yellow-400 text-[#001f3f] px-4 py-1 rounded-md text-sm font-semibold hover:bg-yellow-300 transition">
+      ← Back to Store
+    </a>
+  </header>
+
+  <main class="py-10 px-6 max-w-3xl mx-auto">
+    <div class="bg-white p-6 rounded shadow space-y-4">
+      <p class="text-lg text-gray-700 font-medium">Total Bill: ₹<span id="total-bill">0</span></p>
+
+      <div>
+        <h3 class="text-md font-semibold mb-2">Select Payment Method:</h3>
+        <label class="flex items-center space-x-2 mb-1">
+          <input type="radio" name="payment" value="Cash on Delivery" checked />
+          <span>Cash on Delivery</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="payment" value="UPI Payment" />
+          <span>UPI Payment</span>
+        </label>
+      </div>
+
+      <button onclick="placeOrder()" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md font-semibold transition">
+        ✅ Place Order
+      </button>
+      <p id="order-message" class="text-green-600 font-medium hidden mt-2">🎉 Order placed successfully!</p>
+    </div>
+  </main>
+
+  <script>
+    const totalBillElement = document.getElementById("total-bill");
+    const orderMessage = document.getElementById("order-message");
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let total = cart.reduce((sum, item) => sum + item.price, 0);
+    totalBillElement.textContent = total;
+
+    function placeOrder() {
+      if (total === 0) {
+        alert("Your cart is empty. Please add items before checkout.");
+        return;
+      }
+      orderMessage.classList.remove("hidden");
+      setTimeout(() => orderMessage.classList.add("hidden"), 3000);
+      localStorage.removeItem("cart");
+    }
+  </script>
+</body>
+</html>

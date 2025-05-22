@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - Jatin's Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#f8f9fa] text-gray-900 font-[Poppins]">
+
+  <header class="bg-[#001f3f] shadow-md py-4 px-6 text-white flex justify-between items-center">
+    <h1 class="text-2xl font-bold">🛒 Your Cart</h1>
+    <a href="shop.html" class="bg-yellow-400 text-[#001f3f] px-4 py-1 rounded-md text-sm font-semibold hover:bg-yellow-300 transition">
+      ← Back to Store
+    </a>
+  </header>
+
+  <main class="py-10 px-6 max-w-4xl mx-auto">
+    <div class="bg-white p-6 rounded shadow space-y-4" id="cart-items">
+      <p class="text-gray-500 italic">Loading your cart...</p>
+    </div>
+  </main>
+
+  <script>
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function renderCart() {
+      cartItemsContainer.innerHTML = cart.length === 0 ? '<p class="text-gray-500 italic">Your cart is empty.</p>' : '';
+      cart.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "flex justify-between items-center bg-gray-100 p-3 rounded";
+        div.innerHTML = `
+          <span>🛒 ${item.name}</span>
+          <div class="flex items-center space-x-4">
+            <span class="text-green-600 font-semibold">₹${item.price}</span>
+            <button onclick="removeItem(${index})" class="text-red-500 hover:underline text-sm">Remove</button>
+          </div>
+        `;
+        cartItemsContainer.appendChild(div);
+      });
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>
